@@ -17,6 +17,8 @@
 > w.mat <- as.data.frame(w.mat)    # Transform w.mat as a dataframe
 > colnames(w.mat) <- c("C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10") 
 > w.mat       # View the weight matrix
+
+
    C1     C2     C3    C4 C5 C6 C7 C8 C9    C10
 1   0  0.584  0.553 0.544  0  0  0  0  0  0.777
 2   0  0.000  0.577 0.000  0  0  0  0  0  0.766
@@ -28,6 +30,8 @@
 8   0  0.000  0.000 0.000  0  0  0  0  0  0.840
 9   0 -0.202 -0.212 0.000  0  0  0  0  0 -0.226
 10  0  0.000  0.000 0.000  0  0  0  0  0  0.000
+
+
 > output1 <- fcm.infer(act.vec, w.mat)
 
  The concepts' values are converged in the 6th state (e <= 0.001000) 
@@ -57,6 +61,8 @@
 18 0.5 0.7090893 0.7334230 0.6985705 0.5 0.5 0.5 0.5 0.5 0.9732125
 19 0.5 0.7090893 0.7334230 0.6985705 0.5 0.5 0.5 0.5 0.5 0.9732125
 20 0.5 0.7090893 0.7334230 0.6985705 0.5 0.5 0.5 0.5 0.5 0.9732125
+
+
 > output2 <- fcm.infer(act.vec, w.mat, 35, "r", "s", lambda = 2, e = 0.0001)
 
  WARNING: More iterations are required to reach the convergence.
@@ -1104,5 +1110,4 @@
 > ggplot(data=df2,
 +        aes(x=iterations, y=value, group=variable, colour=variable)) +
 +        theme_bw() + geom_line(size=0.7) + geom_point(size = 3)
-> save.image("C:\\Users\\Usuario\\Documents\\FCM.RData")
-> 
+>
