@@ -1084,30 +1084,20 @@
 998  0.5193699 0.9176362 0.9730747 0.7712994 0.5193699 0.5193699 0.5193699 0.4806301 0.4806301 0.9971502
 999  0.5193602 0.9176205 0.9730699 0.7712602 0.5193602 0.5193602 0.5193602 0.4806398 0.4806398 0.9971494
 1000 0.5193505 0.9176048 0.9730652 0.7712211 0.5193505 0.5193505 0.5193505 0.4806495 0.4806495 0.9971485
+
 > library (reshape2)
 > library (ggplot2)
+
 > iterations <- as.numeric(rownames(output1$values))  # create a numeric vector named "iterations"
 > df <- data.frame(iterations, output1$values)   # add "iterations" in the "output1$values" dataframe
 > df2 <- melt(df, id="iterations")              # transform the dataframe df into long formats
 > ggplot(data=df2,                              # Visualize the concepts' values 
 +        aes(x=iterations, y=value, group=variable, colour=variable)) +
 +        theme_bw() + geom_line(size=0.7) + geom_point(size = 3)
+
 > iterations <- as.numeric(rownames(output2$values))  
 > df <- data.frame(iterations, output2$values)   
 > df2 <- melt(df, id="iterations")              
 > ggplot(data=df2,
 +        aes(x=iterations, y=value, group=variable, colour=variable)) +
 +        theme_bw() + geom_line(size=0.7) + geom_point(size = 3)
-> iterations <- as.numeric(rownames(output1$values))  # create a numeric vector named "iterations"
-> df <- data.frame(iterations, output1$values)   # add "iterations" in the "output1$values" dataframe
-> df2 <- melt(df, id="iterations")              # transform the dataframe df into long formats
-> ggplot(data=df2,                              # Visualize the concepts' values 
-+        aes(x=iterations, y=value, group=variable, colour=variable)) +
-+        theme_bw() + geom_line(size=0.7) + geom_point(size = 3)
-> iterations <- as.numeric(rownames(output2$values))  
-> df <- data.frame(iterations, output2$values)   
-> df2 <- melt(df, id="iterations")              
-> ggplot(data=df2,
-+        aes(x=iterations, y=value, group=variable, colour=variable)) +
-+        theme_bw() + geom_line(size=0.7) + geom_point(size = 3)
->
